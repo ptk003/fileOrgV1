@@ -2,3 +2,4 @@
 .DS_Store
 out
 build-outputs
+cmake-build-debug/
