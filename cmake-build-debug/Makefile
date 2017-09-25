@@ -150,6 +150,33 @@ AdvancedOutput.cpp.s:
 	$(MAKE) -f CMakeFiles/bashUtils.dir/build.make CMakeFiles/bashUtils.dir/AdvancedOutput.cpp.s
 .PHONY : AdvancedOutput.cpp.s
 
+DirEntryList.o: DirEntryList.cpp.o
+
+.PHONY : DirEntryList.o
+
+# target to build an object file
+DirEntryList.cpp.o:
+	$(MAKE) -f CMakeFiles/bashUtils.dir/build.make CMakeFiles/bashUtils.dir/DirEntryList.cpp.o
+.PHONY : DirEntryList.cpp.o
+
+DirEntryList.i: DirEntryList.cpp.i
+
+.PHONY : DirEntryList.i
+
+# target to preprocess a source file
+DirEntryList.cpp.i:
+	$(MAKE) -f CMakeFiles/bashUtils.dir/build.make CMakeFiles/bashUtils.dir/DirEntryList.cpp.i
+.PHONY : DirEntryList.cpp.i
+
+DirEntryList.s: DirEntryList.cpp.s
+
+.PHONY : DirEntryList.s
+
+# target to generate assembly for a file
+DirEntryList.cpp.s:
+	$(MAKE) -f CMakeFiles/bashUtils.dir/build.make CMakeFiles/bashUtils.dir/DirEntryList.cpp.s
+.PHONY : DirEntryList.cpp.s
+
 FSTools.o: FSTools.cpp.o
 
 .PHONY : FSTools.o
@@ -243,6 +270,9 @@ help:
 	@echo "... AdvancedOutput.o"
 	@echo "... AdvancedOutput.i"
 	@echo "... AdvancedOutput.s"
+	@echo "... DirEntryList.o"
+	@echo "... DirEntryList.i"
+	@echo "... DirEntryList.s"
 	@echo "... FSTools.o"
 	@echo "... FSTools.i"
 	@echo "... FSTools.s"

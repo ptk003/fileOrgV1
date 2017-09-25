@@ -6,6 +6,9 @@
 
 FSTools::FSTools() {
 	this->divLine="----------------------------------------------------------------------------------------------------";
+	this->list = new DirEntryList();
+	this->head=NULL;
+	this->tail=NULL;
 }
 
 FSTools::~FSTools() {
@@ -19,33 +22,46 @@ int FSTools::renameFile(string oldName, string newName) {
 	return -1;
 }
 
-int FSTools::readDir(string dirPath) {
-//	vector<string> hiddenVec = vector<string>();
-//	vector<string> dirVec = vector<string>();
-//	vector<string> fileVec = vector<string>();
-//	vector<string> otherVec = vector<string>();
+int FSTools::readDir(char* dirPath) {
+	cout << "Path is: " << dirPath << endl;
 	static DIR *dp;
 	struct dirent *dirp;
-	if ((dp=opendir(dirPath.c_str())) == NULL){
-		printf("Error(%d) opening %s\n", (int)errno, dirPath.c_str());
+	if ((dp=opendir(dirPath)) == NULL){
+		printf("Error(%d) opening %s\n", (int)errno, dirPath);
 		return (int)errno;
 	}
-	string itemName;
+
+
+	char itemName[256] = "";
+	char isHidden[] = "Hidden";
+	char isDir[] = "Directory";
+	char isFile[] = "File";
+	char isUnknown[] = "Unknown";
+
 	while((dirp = readdir(dp)) != NULL){
-		itemName = string(dirp->d_name);
-		if(itemName[0] == '.')
-			this->hiddenVec.push_back(itemName);
+		strcpy(itemName, dirp->d_name);
+		if(itemName[0] == '.') {
+//			this->hiddenVec.push_back(string(itemName));
+//			list->appendNodeBack(dirPath, itemName, isHidden);
+		}
 		else if(dirp->d_type == DT_DIR) {
-            this->dirVec.push_back(itemName);
+            this->dirVec.push_back(string(itemName));
+			list->appendNodeBack(dirPath, itemName, isDir);
 		}
 		else if(dirp->d_type == DT_REG) {
-            this->fileVec.push_back(itemName);
+            this->fileVec.push_back(string(itemName));
+			list->appendNodeBack(dirPath, itemName, isFile);
 		}
-		else
-            this->otherVec.push_back(itemName);
+		else {
+			this->otherVec.push_back(string(itemName));
+			list->appendNodeBack(dirPath, itemName, isUnknown);
+		}
 	}
 	closedir(dp);
-    combineVectors();
+
+
+//    combineVectors();
+	list->dispNodesForward();
 	return 0;
 }
 
@@ -58,6 +74,8 @@ bool FSTools::logContentToFile() {
     sprintf(buff ,"%-25s%-25s%-25s%-25s\n", "Hidden Files", "Directories", "Files", "Other");
     ofs << buff;
     ofs << this->divLine << endl;
+
+
     for(int i = 0; i<(int)(this->maxVecCount);++i){
         sprintf(buff ,"%-25s", (this->dirContent[0][i]).c_str());
         ofs << buff;

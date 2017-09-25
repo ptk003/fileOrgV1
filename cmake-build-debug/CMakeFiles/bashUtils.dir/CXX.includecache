@@ -18,6 +18,42 @@ stdio.h
 unistd.h
 -
 
+/Users/paul_local/Documents/Programming/CLion/bashUtils/DirEntryList.cpp
+DirEntryList.h
+/Users/paul_local/Documents/Programming/CLion/bashUtils/DirEntryList.h
+
+/Users/paul_local/Documents/Programming/CLion/bashUtils/DirEntryList.h
+iostream
+-
+string
+-
+stdio.h
+-
+vector
+-
+string
+-
+dirent.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fstream
+-
+iomanip
+-
+time.h
+-
+unistd.h
+-
+limits.h
+-
+stdio.h
+-
+stdlib.h
+-
+
 /Users/paul_local/Documents/Programming/CLion/bashUtils/FSTools.cpp
 FSTools.h
 /Users/paul_local/Documents/Programming/CLion/bashUtils/FSTools.h
@@ -45,6 +81,8 @@ iomanip
 -
 time.h
 -
+DirEntryList.h
+/Users/paul_local/Documents/Programming/CLion/bashUtils/DirEntryList.h
 
 /Users/paul_local/Documents/Programming/CLion/bashUtils/TermInfo.cpp
 TermInfo.h
@@ -86,5 +124,13 @@ TermInfo.h
 algorithm
 -
 time.h
+-
+unistd.h
+-
+limits.h
+-
+stdio.h
+-
+stdlib.h
 -
 

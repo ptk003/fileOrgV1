@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/bashUtils.dir/AdvancedOutput.cpp.o"
   "CMakeFiles/bashUtils.dir/FSTools.cpp.o"
   "CMakeFiles/bashUtils.dir/TermInfo.cpp.o"
+  "CMakeFiles/bashUtils.dir/DirEntryList.cpp.o"
   "../bashUtils.pdb"
   "../bashUtils"
 )

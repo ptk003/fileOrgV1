@@ -16,6 +16,8 @@
 #include <fstream>
 #include <iomanip>
 #include <time.h>
+#include "DirEntryList.h"
+
 
 using namespace std;
 
@@ -27,15 +29,14 @@ struct sortByStrLen {
 
 
 
-
 class FSTools {
 private:
-    typedef vector<vector<string>> strVec2D;
+	Node *head, *tail;
 public:
     FSTools();
     ~FSTools();
 
-    int readDir(string dirPath);
+    int readDir(char* dirPath);
     int renameFile(string oldName, string newName);
     void previewFileOutput();
 
@@ -44,6 +45,8 @@ public:
     const vector<string, allocator<string>> &getFiles() const;
 
     const vector<string, allocator<string>> &getOther() const;
+
+
     void getVecSize(vector<int> &vecSizes);
     bool logContentToFile();
 
@@ -55,10 +58,12 @@ private:
     char** dirContents;
     ofstream ofs;
 
+
     unsigned long maxVecCount;
     vector<vector<string>> dirContent;
     vector<string> hiddenVec, dirVec, fileVec, otherVec;
 	vector<string> formattedOutput;
+	DirEntryList *list;
 };
 
 

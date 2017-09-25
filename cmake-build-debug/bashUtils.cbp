@@ -88,6 +88,12 @@
 		<Unit filename="/Users/paul_local/Documents/Programming/CLion/bashUtils/AdvancedOutput.h">
 			<Option target="bashUtils"/>
 		</Unit>
+		<Unit filename="/Users/paul_local/Documents/Programming/CLion/bashUtils/DirEntryList.cpp">
+			<Option target="bashUtils"/>
+		</Unit>
+		<Unit filename="/Users/paul_local/Documents/Programming/CLion/bashUtils/DirEntryList.h">
+			<Option target="bashUtils"/>
+		</Unit>
 		<Unit filename="/Users/paul_local/Documents/Programming/CLion/bashUtils/FSTools.cpp">
 			<Option target="bashUtils"/>
 		</Unit>
