@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/paul_local/Documents/Programming/CLion/bashUtils/AdvancedOutput.cpp
+AdvancedOutput.h
+/Users/paul_local/Documents/Programming/CLion/bashUtils/AdvancedOutput.h
+
+/Users/paul_local/Documents/Programming/CLion/bashUtils/AdvancedOutput.h
+sys/ioctl.h
+-
+stdio.h
+-
+unistd.h
+-
+
+/Users/paul_local/Documents/Programming/CLion/bashUtils/main.cpp
+sys/types.h
+-
+dirent.h
+-
+errno.h
+-
+vector
+-
+string
+-
+iostream
+-
+fstream
+-
+AdvancedOutput.h
+/Users/paul_local/Documents/Programming/CLion/bashUtils/AdvancedOutput.h
+
