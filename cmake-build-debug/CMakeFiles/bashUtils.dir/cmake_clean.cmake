@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/bashUtils.dir/AdvancedOutput.cpp.o"
   "CMakeFiles/bashUtils.dir/FSTools.cpp.o"
   "CMakeFiles/bashUtils.dir/TermInfo.cpp.o"
-  "bashUtils.pdb"
-  "bashUtils"
+  "../bashUtils.pdb"
+  "../bashUtils"
 )
 
 # Per-language clean rules from dependency scanning.

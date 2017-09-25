@@ -1,3 +1,6 @@
+#define _RELEASE_ false
+#define _CLASS_DEV_ false
+
 #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
@@ -9,29 +12,12 @@
 #include "AdvancedOutput.h"
 #include "FSTools.h"
 #include "TermInfo.h"
+#include <algorithm>
+#include <time.h>
+
+
 using namespace std;
 
-
-//region get directiory contents
-
-int getDir (string dir, vector<string> &files){
-    static DIR *dp;
-    struct dirent *dirp;
-    if ((dp=opendir(dir.c_str())) == NULL){
-        printf("Error(%d) opening %s\n", (int)errno, dir.c_str());
-        return (int)errno;
-    }
-
-    while((dirp = readdir(dp)) != NULL){
-        files.push_back(string(dirp->d_name));
-        printf("Item Name: %-20s ", dirp->d_name);
-        cout << "Type: " << ((dirp->d_type == DT_DIR)?("Directory"):("Not Directory")) << endl;
-//        cout << "Type: " << dirp->d_type << endl;
-    }
-    closedir(dp);
-    return 0;
-}
-//endregion
 
 //region display input arguments
 
@@ -44,34 +30,49 @@ int displayInputArgs(int argc, char *argv[]){
 
 //endregion
 
+string getPWD(){
+    char cwd[1024];
+    if(getcwd(cwd, sizeof(cwd)) != NULL){
+        printf("CWD is: %s\n", cwd);
+        return cwd;
+    }
+    else
+        return 0;
+}
+
+bool isBigger(int a, int b){return a>b;}
+bool strLonger(const string& s1, const string& s2){return s1.size()<s2.size();}
+
+const bool CLASS_DEV = false;
 
 int main(int argc, char *argv[]) {
-    /*
-
     string destDir = ".";
-    vector<string> files = vector<string>();
 
-    // check if user designated directory
-    if(argc > 1){
-        destDir = argv[1];
-    }
-    getDir(destDir, files);
-    for(int i =0; i<files.size();++i){
-        cout << files[i] << endl;
-    }
+	//region CLASS DEV
+	if(_CLASS_DEV_){
+		if(argc > 1){
+			destDir = argv[1];
+		}
 
-*/
+		FSTools *fstPtr;
+		fstPtr = new FSTools;
+		int numDirs, numFiles, numOther;
+		vector<int> vecSizes;
+		fstPtr->readDir(destDir);
+		fstPtr->logContentToFile();
+		fstPtr->previewFileOutput();
+	}
+    //endregion
 
-//
-//    int result;
-//    char oldname[] = "test.txt";
-//    char newname[] = "newfilename.txt";
-//    result = rename(oldname, newname);
-//    if(result==0)
-//        puts("File successfully renamed");
-//    else
-//        puts("Error renaming file");
-//    editFile("testFile.txt");
+	//region METHOD DEV
+    string targetFile = "log.txt";
 
+	struct stat attr;
+	stat(targetFile.c_str(), &attr);
+	printf("Last modified time: %s", ctime(&attr.st_mtime));
+	printf("Birth Time: %s", ctime(&attr.st_birthtime));
+	printf("File Size: %d", (int)attr.st_size);
+
+	//endregion
     return 0;
 }

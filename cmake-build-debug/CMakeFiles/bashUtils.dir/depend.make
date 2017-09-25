@@ -4,6 +4,14 @@
 CMakeFiles/bashUtils.dir/AdvancedOutput.cpp.o: ../AdvancedOutput.cpp
 CMakeFiles/bashUtils.dir/AdvancedOutput.cpp.o: ../AdvancedOutput.h
 
+CMakeFiles/bashUtils.dir/FSTools.cpp.o: ../FSTools.cpp
+CMakeFiles/bashUtils.dir/FSTools.cpp.o: ../FSTools.h
+
+CMakeFiles/bashUtils.dir/TermInfo.cpp.o: ../TermInfo.cpp
+CMakeFiles/bashUtils.dir/TermInfo.cpp.o: ../TermInfo.h
+
 CMakeFiles/bashUtils.dir/main.cpp.o: ../AdvancedOutput.h
+CMakeFiles/bashUtils.dir/main.cpp.o: ../FSTools.h
+CMakeFiles/bashUtils.dir/main.cpp.o: ../TermInfo.h
 CMakeFiles/bashUtils.dir/main.cpp.o: ../main.cpp
 
